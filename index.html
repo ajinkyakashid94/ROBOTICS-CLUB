@@ -1,0 +1,121 @@
+NEXT_PUBLIC_SUPABASE_URL=https://uzwklboigiwtmvsqmkwk.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qcS--0Mh7coZQ9v1JO_4ng_INIYZ8Wt<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robotics Club — Build. Break. Build Better.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="landing.css">
+</head>
+<body>
+
+<canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+<!-- ── Nav ── -->
+<header class="top">
+  <a class="brand" href="index.html">⚙ Robotics Club</a>
+  <nav>
+    <a href="#about">What we build</a>
+    <a href="#team">Core Team</a>
+    <a href="register.html" class="btn small">Register Now</a>
+  </nav>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero" id="home">
+
+  <div class="reg-banner reveal" aria-label="Registration open announcement">
+    <span class="pulse-dot"></span>
+    <span class="banner-text">Core Team Registration is&nbsp;<strong>OPEN</strong></span>
+    <a href="register.html" class="banner-cta">Apply →</a>
+  </div>
+
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="eyebrow reveal reveal-delay-1">Welcome to the</p>
+      <h1 class="reveal reveal-delay-2">Build robots.<br><span class="highlight">Break them.</span><br>Build better ones.</h1>
+      <p class="sub reveal reveal-delay-3">Weekly workshops, competition teams and open lab hours for anyone curious about robotics. <strong>No experience needed.</strong></p>
+
+      <div class="hero-actions reveal reveal-delay-4">
+        <a href="register.html" class="btn big">Join the Core Team</a>
+        <a href="#about" class="btn ghost">See what we build ↓</a>
+      </div>
+    </div>
+
+    <!-- Animated robot -->
+    <div class="bot-wrap reveal reveal-delay-3">
+      <div class="bot" id="bot" aria-hidden="true">
+        <div class="antenna"><span class="antenna-ball"></span></div>
+        <div class="head">
+          <div class="eye"><span class="pupil"></span></div>
+          <div class="eye"><span class="pupil"></span></div>
+          <div class="mouth"></div>
+        </div>
+        <div class="body-bot">
+          <div class="chest-light"></div>
+          <div class="chest-light"></div>
+          <div class="chest-light"></div>
+        </div>
+      </div>
+      <p class="caption">Move your cursor — it's watching.</p>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ── What We Build ── -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <p class="section-label">What we build</p>
+    <h2>From line followers<br>to AI-guided arms.</h2>
+    <div class="tracks">
+      <article class="track-card">
+        <div class="track-icon">🤖</div>
+        <h3>Line followers &amp; autonomous bots</h3>
+        <p>Sensors, motor control and your first Arduino sketches.</p>
+      </article>
+      <article class="track-card">
+        <div class="track-icon">🦾</div>
+        <h3>Robot arms &amp; mechanics</h3>
+        <p>CAD, 3D printing and gear design in the open lab.</p>
+      </article>
+      <article class="track-card">
+        <div class="track-icon">🏆</div>
+        <h3>Competition team</h3>
+        <p>Prepare for inter-college events with a dedicated squad.</p>
+      </article>
+      <article class="track-card">
+        <div class="track-icon">👁️</div>
+        <h3>AI &amp; vision</h3>
+        <p>Camera-guided robots using Python and OpenCV.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Core Team ── -->
+<section class="core-team" id="team">
+  <div class="section-inner">
+    <div class="ct-badge">
+      <span class="pulse-dot white"></span> Recruitment Open
+    </div>
+    <h2>Join the <span class="highlight-yellow">Core Team</span></h2>
+    <p class="ct-sub">The Core Team drives every project, event, and workshop. We're looking for passionate students who want to lead — not just participate.</p>
+    <div class="perks">
+      <div class="perk"><span class="perk-icon">🛠️</span><h4>Priority lab access</h4><p>Use the open lab anytime, with dedicated time slots.</p></div>
+      <div class="perk"><span class="perk-icon">📜</span><h4>Official certificate</h4><p>Recognised club membership certificate for your portfolio.</p></div>
+      <div class="perk"><span class="perk-icon">🚀</span><h4>Lead real projects</h4><p>Take ownership of sub-teams and present at competitions.</p></div>
+      <div class="perk"><span class="perk-icon">🌐</span><h4>Network &amp; mentorship</h4><p>Connect with alumni, faculty, and industry mentors.</p></div>
+    </div>
+    <a href="register.html" class="btn big glow-btn">Apply for Core Team →</a>
+  </div>
+</section>
+
+
+
+<script src="landing.js"></script>
+</body>
+</html>
