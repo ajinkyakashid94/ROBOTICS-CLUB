@@ -1,0 +1,94 @@
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--ink);
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background: currentColor;
+  transition: transform .2s ease;
+}
+.menu-toggle:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+@media(max-width:700px) {
+  .top {
+    padding: .6rem 1rem;
+  }
+  .brand {
+    font-size: clamp(1.05rem,5vw,1.25rem);
+  }
+  .menu-toggle {
+    display: block;
+    flex: 0 0 44px;
+  }
+  .top nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    background: rgba(238,242,246,.98);
+    border-bottom: 2px solid var(--ink);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition:
+      max-height .25s ease,
+      opacity .2s ease,
+      padding .25s ease,
+      visibility 0s linear .25s;
+  }
+  .top[data-menu-open="true"] nav {
+    max-height: 18rem;
+    padding: .4rem 1rem .8rem;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transition:
+      max-height .25s ease,
+      opacity .2s ease,
+      padding .25s ease,
+      visibility 0s;
+  }
+  .top nav a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    border-bottom: 1px solid rgba(20,33,61,.12);
+  }
+  .top nav a:last-child { border-bottom: 0; }
+  .top nav .btn.small {
+    justify-content: center;
+    margin-top: .5rem;
+  }
+  .top[data-menu-open="true"] .menu-toggle span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+  .top[data-menu-open="true"] .menu-toggle span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .menu-toggle span,
+  .top nav { transition: none; }
+}

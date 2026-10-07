@@ -1,5 +1,4 @@
-NEXT_PUBLIC_SUPABASE_URL=https://uzwklboigiwtmvsqmkwk.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qcS--0Mh7coZQ9v1JO_4ng_INIYZ8Wt<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
@@ -8,6 +7,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qcS--0Mh7coZQ9v1JO_4ng_INIYZ
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="landing.css">
+<link rel="stylesheet" href="navigation.css">
 </head>
 <body>
 
@@ -16,7 +16,11 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qcS--0Mh7coZQ9v1JO_4ng_INIYZ
 <!-- ── Nav ── -->
 <header class="top">
   <a class="brand" href="index.html">⚙ Robotics Club</a>
-  <nav>
+  <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav" aria-label="Main navigation">
     <a href="#about">What we build</a>
     <a href="#team">Core Team</a>
     <a href="register.html" class="btn small">Register Now</a>
@@ -116,6 +120,7 @@ NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_qcS--0Mh7coZQ9v1JO_4ng_INIYZ
 
 
 
+<script src="navigation.js"></script>
 <script src="landing.js"></script>
 </body>
 </html>

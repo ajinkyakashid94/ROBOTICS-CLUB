@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="register.css">
+<link rel="stylesheet" href="navigation.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
@@ -14,7 +15,11 @@
 <!-- ── Nav ── -->
 <header class="top">
   <a class="brand" href="index.html">⚙ Robotics Club</a>
-  <nav>
+  <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+    <span></span>
+    <span></span>
+  </button>
+  <nav id="site-nav" aria-label="Main navigation">
     <a href="index.html">← Back to home</a>
   </nav>
 </header>
@@ -78,9 +83,9 @@
             <label for="dept">Department <span class="req">*</span></label>
             <select id="dept" name="dept" required>
               <option value="">Choose one</option>
-              <option value="Computer Engineering">Computer Engineering (CE)</option>
-              <option value="AIML">Artificial Intelligence &amp; Machine Learning (AIML)</option>
-              <option value="AIDS">Artificial Intelligence &amp; Data Science (AIDS)</option>
+              <option value="Computer Engineering">Computer Engineering</option>
+              <option value="AIML">AIML</option>
+              <option value="AIDS">AIDS</option>
             </select>
             <small class="err"></small>
           </div>
@@ -182,6 +187,7 @@
   </div>
 </div>
 
+<script src="navigation.js"></script>
 <script src="register.js"></script>
 </body>
 </html>
