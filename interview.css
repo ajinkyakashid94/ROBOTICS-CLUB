@@ -1,0 +1,217 @@
+.interview-page {
+  min-height: calc(100vh - 60px);
+  grid-template-columns: minmax(280px,.72fr) minmax(0,1.28fr);
+}
+
+.interview-page .reg-aside {
+  align-items: center;
+  background:
+    radial-gradient(ellipse at 12% 14%, rgba(255,196,0,.13), transparent 42%),
+    var(--ink);
+}
+
+.schedule-card {
+  margin: auto 0;
+  max-width: 760px;
+}
+
+.schedule-label {
+  color: var(--steel);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  margin-bottom: .75rem;
+}
+
+.schedule-card h2 {
+  max-width: 18ch;
+}
+
+.interview-options {
+  display: grid;
+  gap: 1rem;
+  margin: 1.75rem 0 2.25rem;
+}
+
+.interview-option {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.1rem;
+}
+
+.online-option {
+  color: inherit;
+  text-decoration: none;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+}
+
+.online-option:hover {
+  transform: translateY(-2px);
+  border-color: var(--ink);
+  box-shadow: 3px 3px 0 var(--ink);
+}
+
+.online-option:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.schedule-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  background: var(--signal);
+  font-size: 1.3rem;
+}
+
+.interview-option h3 {
+  display: block;
+  font-size: 1.08rem;
+  margin-bottom: .3rem;
+}
+
+.interview-option p {
+  color: var(--steel);
+  font-size: .9rem;
+  line-height: 1.5;
+}
+
+.option-status {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  background: rgba(20,33,61,.08);
+  color: var(--steel);
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.online-candidate-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+  display: grid;
+  gap: .75rem;
+}
+
+.online-candidate-list li {
+  display: grid;
+  grid-template-columns: 44px minmax(0,1fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.1rem;
+  background: linear-gradient(120deg, #f5f7fa, var(--paper));
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  min-width: 0;
+  transition: border-color .15s, box-shadow .15s, transform .15s;
+}
+
+.online-candidate-list li:hover {
+  border-color: rgba(20,33,61,.35);
+  box-shadow: 0 4px 12px rgba(20,33,61,.08);
+  transform: translateY(-1px);
+}
+
+.candidate-number {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  border-radius: 50%;
+  background: var(--signal);
+  font-weight: 800;
+}
+
+.candidate-info > strong,
+.candidate-info > span {
+  display: block;
+}
+
+.candidate-info {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.candidate-info > strong {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.candidate-info > span {
+  color: var(--steel);
+  font-size: .88rem;
+  margin-top: .15rem;
+}
+
+.candidate-schedule {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: .5rem;
+  margin-top: .75rem;
+  color: var(--steel);
+  font-size: .82rem;
+}
+
+.candidate-schedule > span {
+  display: block;
+  padding: .4rem .55rem;
+  border-radius: 7px;
+  background: rgba(20,33,61,.045);
+  overflow-wrap: anywhere;
+}
+
+.candidate-schedule strong {
+  color: var(--ink);
+}
+
+@media(min-width:1200px) {
+  .schedule-card { padding: clamp(2rem,3vw,2.75rem); }
+  .online-candidate-list { gap: .85rem; }
+  .online-candidate-list li { padding: 1.1rem 1.25rem; }
+}
+
+@media(max-width:820px) {
+  .interview-page { grid-template-columns: minmax(0,1fr); }
+  .interview-page .reg-aside { align-items: flex-start; }
+  .interview-page .reg-aside h1 { margin-bottom: .65rem; }
+  .interview-page .reg-aside > .aside-inner > p { margin-bottom: 0; }
+  .schedule-card { margin: 0 auto; }
+}
+
+@media(max-width:600px) {
+  .schedule-card h2 { font-size: clamp(1.5rem,7vw,1.8rem); }
+  .interview-page .reg-aside { padding-block: 1.25rem; }
+  .interview-page .reg-aside h1 { font-size: clamp(1.8rem,8vw,2.4rem); }
+  .interview-page .aside-badge { margin-bottom: .8rem; }
+  .interview-page .reg-form-wrap { padding: 1rem .8rem 2rem; }
+  .schedule-card { padding: 1.1rem; }
+  .interview-options { gap: .7rem; margin: 1.25rem 0 1.75rem; }
+  .interview-option { align-items: flex-start; gap: .75rem; padding: .85rem; }
+  .schedule-icon { width: 40px; height: 40px; flex-basis: 40px; }
+  .interview-option > div { flex: 1 1 calc(100% - 56px); min-width: 0; }
+  .option-status { margin-left: 3.1rem; }
+  .online-candidate-list { gap: .65rem; margin-block: 1.25rem 1.75rem; }
+  .online-candidate-list li { grid-template-columns: 40px minmax(0,1fr); gap: .75rem; padding: .85rem; }
+  .candidate-number { width: 40px; height: 40px; flex-basis: 40px; }
+  .candidate-info > strong { font-size: .96rem; }
+  .candidate-schedule { gap: .4rem; font-size: .78rem; }
+  .candidate-schedule > span { padding: .4rem; }
+}
+
+@media(max-width:360px) {
+  .candidate-schedule { grid-template-columns: minmax(0,1fr); }
+}
+
+@media(hover:none) {
+  .online-candidate-list li:hover { transform: none; box-shadow: none; }
+}

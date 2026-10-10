@@ -21,6 +21,7 @@
   </button>
   <nav id="site-nav" aria-label="Main navigation">
     <a href="index.html">← Back to home</a>
+    <a href="interview.html">📅 Interview Slots</a>
   </nav>
 </header>
 
@@ -30,10 +31,10 @@
   <aside class="reg-aside">
     <div class="aside-inner">
       <span class="aside-badge">
-        <span class="pulse-dot"></span> Registration Open
+        Registration Closed
       </span>
-      <h1>Join the<br><span class="yellow">Core Team</span></h1>
-      <p>Take ownership of real projects, lead sub-teams and represent the club at competitions.</p>
+      <h1>Core Team<br><span class="yellow">Registration Closed</span></h1>
+      <p>Registration for the Robotics Club Core Team is now closed. Please check back for future recruitment updates.</p>
 
       <ul class="perk-list">
         <li><span>🛠️</span> Priority open-lab access</li>
@@ -42,152 +43,21 @@
         <li><span>🌐</span> Alumni &amp; mentor network</li>
       </ul>
 
-      <div class="member-count-box">
-        <strong id="count">0</strong>
-        <span>members registered on this device</span>
-      </div>
     </div>
   </aside>
 
-  <!-- Registration form -->
+  <!-- Registration status -->
   <section class="reg-form-wrap">
-    <div class="form-card" id="formCard">
-      <h2>Registration form</h2>
-      <p class="form-sub">Fill in the details below. Takes about a minute.</p>
-
-      <form id="regForm" novalidate>
-        <!-- Full name -->
-        <div class="field">
-          <label for="name">Student Name <span class="req">*</span></label>
-          <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Ajinkya Patil" required>
-          <small class="err"></small>
-        </div>
-
-        <!-- Email + Phone -->
-        <div class="row">
-          <div class="field">
-            <label for="email">Email <span class="req">*</span></label>
-            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@college.edu" required>
-            <small class="err"></small>
-          </div>
-          <div class="field">
-            <label for="phone">Phone <span class="req">*</span></label>
-            <input id="phone" name="phone" type="tel" inputmode="numeric" placeholder="10-digit number" required>
-            <small class="err"></small>
-          </div>
-        </div>
-
-        <!-- Dept + Year -->
-        <div class="row">
-          <div class="field">
-            <label for="dept">Department <span class="req">*</span></label>
-            <select id="dept" name="dept" required>
-              <option value="">Choose one</option>
-              <option value="Computer Engineering">Computer Engineering</option>
-              <option value="AIML">AIML</option>
-              <option value="AIDS">AIDS</option>
-            </select>
-            <small class="err"></small>
-          </div>
-          <div class="field">
-            <label for="year">Year of study <span class="req">*</span></label>
-            <select id="year" name="year" required>
-              <option value="">Choose one</option>
-              <option>First year</option>
-              <option>Second year</option>
-              <option>Third year</option>
-              <option>Final year</option>
-            </select>
-            <small class="err"></small>
-          </div>
-        </div>
-
-        <!-- Interests -->
-        <fieldset class="field">
-          <legend>Interests <span class="req">*</span></legend>
-          <div class="chips">
-            <label><input type="checkbox" name="interest" value="Electronics"><span>Electronics</span></label>
-            <label><input type="checkbox" name="interest" value="Programming"><span>Programming</span></label>
-            <label><input type="checkbox" name="interest" value="Mechanical design"><span>Mechanical design</span></label>
-            <label><input type="checkbox" name="interest" value="AI and vision"><span>AI &amp; vision</span></label>
-            <label><input type="checkbox" name="interest" value="Competitions"><span>Competitions</span></label>
-          </div>
-          <small class="err"></small>
-        </fieldset>
-
-        <!-- Experience -->
-        <fieldset class="field">
-          <legend>Experience with robotics <span class="req">*</span></legend>
-          <div class="chips">
-            <label><input type="radio" name="level" value="Beginner" checked><span>Beginner</span></label>
-            <label><input type="radio" name="level" value="Some projects"><span>Some projects</span></label>
-            <label><input type="radio" name="level" value="Experienced"><span>Experienced</span></label>
-          </div>
-        </fieldset>
-
-        <!-- Message -->
-        <div class="field">
-          <label for="msg">Anything you want to build? <span class="req">*</span></label>
-          <textarea id="msg" name="msg" rows="3" placeholder="A self-balancing robot, an AI chess player..." required></textarea>
-          <small class="err"></small>
-        </div>
-
-        <!-- Interview Slot -->
-        <fieldset class="field interview-field">
-          <legend>Interview Slot <span class="required-star">*</span></legend>
-          <p class="interview-hint">Choose how you'd like to attend your interview.</p>
-          <div class="interview-options">
-            <label class="interview-card">
-              <input type="radio" name="slot" value="Online" required>
-              <span class="interview-card-inner">
-                <span class="interview-icon">💻</span>
-                <strong>Online</strong>
-                <span class="interview-desc">via Google Meet / Zoom</span>
-              </span>
-            </label>
-            <label class="interview-card">
-              <input type="radio" name="slot" value="Offline">
-              <span class="interview-card-inner">
-                <span class="interview-icon">🏫</span>
-                <strong>Offline</strong>
-                <span class="interview-desc">at the college campus</span>
-              </span>
-            </label>
-          </div>
-          <small class="err"></small>
-        </fieldset>
-
-        <button type="submit" class="btn submit-btn">Submit registration →</button>
-      </form>
-
-      <!-- Inline success (below the form, in-page) -->
-      <div class="done" id="done" hidden>
-        <h3>You're in, <span id="doneName"></span>.</h3>
-        <p>Your registration ID is <strong id="doneId"></strong>. We'll email the next meeting details to <span id="doneEmail"></span>.</p>
-        <button class="btn" id="again">Register another member</button>
-      </div>
+    <div class="form-card closed-card">
+      <h2>Registration is closed</h2>
+      <p class="form-sub">We’re no longer accepting applications for the Core Team. Keep an eye on the Robotics Club website for future recruitment announcements.</p>
+      <p class="form-sub">Already applied? Check the interview schedule for updates.</p>
+      <a href="interview.html" class="btn">📅 View Interview Schedule</a>
+      <a href="index.html" class="btn">Back to home</a>
     </div>
   </section>
 </main>
 
-<!-- ── Success Popup ── -->
-<div id="successOverlay" class="success-overlay" aria-modal="true" role="dialog" aria-label="Registration successful" hidden>
-  <div class="confetti-wrap" id="confettiWrap" aria-hidden="true"></div>
-  <div class="success-card">
-    <div class="success-icon" aria-hidden="true">
-      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle class="circle-bg" cx="32" cy="32" r="30" stroke="#14213d" stroke-width="3"/>
-        <polyline class="check-mark" points="18,33 27,43 46,22" stroke="#14213d" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h2 class="success-title">Welcome aboard, <span id="popupName"></span>!</h2>
-    <p class="success-sub">Registration ID: <strong id="popupId"></strong></p>
-    <p class="success-msg">We'll email the next meeting details to<br><strong id="popupEmail"></strong></p>
-    <button class="btn" id="successClose">Awesome, let's go! 🚀</button>
-  </div>
-</div>
-
 <script src="navigation.js"></script>
-<script src="register.js"></script>
 </body>
 </html>

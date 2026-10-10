@@ -121,6 +121,9 @@ a { color: inherit; text-decoration: none; }
   transition: transform .12s;
 }
 .banner-cta:hover { transform: scale(1.05); }
+.reg-banner.closed { box-shadow: 3px 3px 0 var(--steel); }
+.reg-banner.closed .banner-text strong { color: #ff8a80; }
+.reg-banner.closed .banner-cta { background: var(--steel); color: var(--white); }
 
 /* Pulse dot */
 .pulse-dot {
