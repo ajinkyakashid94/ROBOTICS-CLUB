@@ -29,6 +29,7 @@
 
 .interview-options {
   display: grid;
+  grid-template-columns: minmax(0,1fr);
   gap: 1rem;
   margin: 1.75rem 0 2.25rem;
 }
@@ -196,10 +197,16 @@
   .interview-page .reg-form-wrap { padding: 1rem .8rem 2rem; }
   .schedule-card { padding: 1.1rem; }
   .interview-options { gap: .7rem; margin: 1.25rem 0 1.75rem; }
-  .interview-option { align-items: flex-start; gap: .75rem; padding: .85rem; }
+  .interview-option {
+    display: grid;
+    grid-template-columns: 40px minmax(0,1fr);
+    align-items: start;
+    gap: .65rem .75rem;
+    padding: .85rem;
+  }
   .schedule-icon { width: 40px; height: 40px; flex-basis: 40px; }
-  .interview-option > div { flex: 1 1 calc(100% - 56px); min-width: 0; }
-  .option-status { margin-left: 3.1rem; }
+  .interview-option > div { grid-column: 2; grid-row: 1; min-width: 0; }
+  .option-status { grid-column: 2; grid-row: 2; justify-self: start; margin-left: 0; }
   .online-candidate-list { gap: .65rem; margin-block: 1.25rem 1.75rem; }
   .online-candidate-list li { grid-template-columns: 40px minmax(0,1fr); gap: .75rem; padding: .85rem; }
   .candidate-number { width: 40px; height: 40px; flex-basis: 40px; }
