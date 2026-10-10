@@ -47,18 +47,37 @@
 .online-option {
   color: inherit;
   text-decoration: none;
-  transition: transform .15s, border-color .15s, box-shadow .15s;
+  transition: transform .2s cubic-bezier(.2,.8,.2,1), border-color .15s, box-shadow .15s;
 }
 
 .online-option:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.01);
   border-color: var(--ink);
   box-shadow: 3px 3px 0 var(--ink);
 }
 
+.online-option:active { transform: scale(.985); }
+
 .online-option:focus-visible {
   outline: 3px solid var(--ink);
   outline-offset: 3px;
+}
+
+.option-status {
+  flex: 0 0 auto;
+  margin-left: auto;
+  padding: .25rem .55rem;
+  border-radius: 999px;
+  background: var(--signal);
+  color: var(--ink);
+  font-size: .75rem;
+  font-weight: 700;
+  transition: transform .2s ease, background-color .2s ease;
+}
+
+.online-option:hover .option-status {
+  transform: translateX(3px);
+  background: #ffd633;
 }
 
 .schedule-icon {
@@ -84,17 +103,6 @@
   line-height: 1.5;
 }
 
-.option-status {
-  flex: 0 0 auto;
-  margin-left: auto;
-  padding: .25rem .55rem;
-  border-radius: 999px;
-  background: rgba(20,33,61,.08);
-  color: var(--steel);
-  font-size: .75rem;
-  font-weight: 700;
-}
-
 .online-candidate-list {
   list-style: none;
   padding: 0;
@@ -114,6 +122,22 @@
   border-radius: 12px;
   min-width: 0;
   transition: border-color .15s, box-shadow .15s, transform .15s;
+  animation: candidatePop .42s cubic-bezier(.2,.8,.2,1) backwards;
+}
+
+.online-candidate-list li:nth-child(1) { animation-delay: .03s; }
+.online-candidate-list li:nth-child(2) { animation-delay: .06s; }
+.online-candidate-list li:nth-child(3) { animation-delay: .09s; }
+.online-candidate-list li:nth-child(4) { animation-delay: .12s; }
+.online-candidate-list li:nth-child(5) { animation-delay: .15s; }
+.online-candidate-list li:nth-child(6) { animation-delay: .18s; }
+.online-candidate-list li:nth-child(7) { animation-delay: .21s; }
+.online-candidate-list li:nth-child(8) { animation-delay: .24s; }
+.online-candidate-list li:nth-child(n+9) { animation-delay: .27s; }
+
+@keyframes candidatePop {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 .online-candidate-list li:hover {
@@ -221,4 +245,16 @@
 
 @media(hover:none) {
   .online-candidate-list li:hover { transform: none; box-shadow: none; }
+  .online-option:hover { transform: none; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .online-candidate-list li {
+    animation: none;
+  }
+
+  .online-option,
+  .option-status {
+    transition: none;
+  }
 }
