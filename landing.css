@@ -124,6 +124,17 @@ a { color: inherit; text-decoration: none; }
 .reg-banner.closed { box-shadow: 3px 3px 0 var(--steel); }
 .reg-banner.closed .banner-text strong { color: #ff8a80; }
 .reg-banner.closed .banner-cta { background: var(--steel); color: var(--white); }
+.announcement-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 2rem;
+}
+.announcement-stack .reg-banner { margin-bottom: 0; }
+.interview-banner { animation-delay: .15s; }
+.interview-banner .banner-text strong { color: var(--signal); }
+.interview-banner .banner-cta { background: var(--signal); color: var(--ink); }
 
 /* Pulse dot */
 .pulse-dot {
@@ -412,8 +423,6 @@ h1 {
 .perk-icon { font-size: 1.8rem; display: block; margin-bottom: .6rem; }
 .perk h4 { font-size: 1rem; margin-bottom: .3rem; }
 .perk p  { color: var(--steel); font-size: .9rem; }
-
-
 
 /* ════════════════════════════════════════
    REVEAL ANIMATIONS (scroll-triggered)
