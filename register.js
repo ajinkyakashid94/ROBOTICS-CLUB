@@ -46,6 +46,23 @@ function validateField(name) {
   return res === true;
 }
 
+async function findAvailableRegistrationId(startNumber) {
+  let number = startNumber;
+
+  while (true) {
+    const id = 'RC-' + String(number).padStart(4, '0');
+    const { data, error } = await sb
+      .from('registrations')
+      .select('reg_id')
+      .eq('reg_id', id)
+      .maybeSingle();
+
+    if (error) throw error;
+    if (!data) return { id, number };
+    number++;
+  }
+}
+
 Object.keys(rules).forEach(n =>
   form.elements[n].addEventListener('blur', () => validateField(n))
 );
@@ -87,31 +104,26 @@ form.addEventListener('submit', async e => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Submitting…';
 
-  // Check duplicate email
-  const { data: existing } = await sb
-    .from('registrations')
-    .select('email')
-    .eq('email', email)
-    .maybeSingle();
+  let id;
+  try {
+    const { data: existing, error: lookupError } = await sb
+      .from('registrations')
+      .select('email')
+      .eq('email', email)
+      .maybeSingle();
 
-  if (existing) {
-    setError(form.email, 'This email is already registered.');
-    submitBtn.disabled = false;
-    submitBtn.textContent = 'Submit registration →';
-    return;
-  }
+    if (lookupError) throw lookupError;
+    if (existing) {
+      setError(form.email, 'This email is already registered.');
+      return;
+    }
 
-  // Generate reg ID based on count
-  const { count } = await sb
-    .from('registrations')
-    .select('*', { count: 'exact', head: true });
-  const id = 'RC-' + String((count ?? 0) + 1).padStart(4, '0');
+    const { count, error: countError } = await sb
+      .from('registrations')
+      .select('*', { count: 'exact', head: true });
+    if (countError) throw countError;
 
-  // Insert into Supabase
-  const { error } = await sb
-    .from('registrations')
-    .insert({
-      reg_id:    id,
+    const registration = {
       name:      form.name.value.trim(),
       email:     email,
       phone:     form.phone.value.replace(/\D/g, ''),
@@ -121,19 +133,49 @@ form.addEventListener('submit', async e => {
       level:     form.level.value,
       slot:      slot,
       msg:       form.msg.value.trim(),
-    });
+    };
 
-  submitBtn.disabled = false;
-  submitBtn.textContent = 'Submit registration →';
+    let inserted = false;
+    let nextNumber = (count ?? 0) + 1;
+    for (let attempt = 0; attempt < 5; attempt++) {
+      const available = await findAvailableRegistrationId(nextNumber);
+      id = available.id;
+      const { error: insertError } = await sb
+        .from('registrations')
+        .insert({ ...registration, reg_id: id });
 
-  if (error) {
-    console.error('Supabase insert error:', JSON.stringify(error, null, 2));
-    if (error.code === '23505') {
-      setError(form.email, 'This email is already registered.');
-    } else {
-      alert(`Error: ${error.message}\nCode: ${error.code}\nDetails: ${error.details}`);
+      if (!insertError) {
+        inserted = true;
+        break;
+      }
+
+      const isRegIdCollision = insertError.code === '23505'
+        && /\(reg_id\)/i.test(`${insertError.details || ''} ${insertError.message || ''}`);
+      if (isRegIdCollision) {
+        nextNumber = available.number + 1;
+        continue;
+      }
+
+      if (insertError.code === '23505' && /\(email\)/i.test(`${insertError.details || ''} ${insertError.message || ''}`)) {
+        setError(form.email, 'This email is already registered.');
+        return;
+      }
+      throw insertError;
     }
+
+    if (!inserted) {
+      throw new Error('Could not reserve a unique registration ID. Please try again.');
+    }
+  } catch (error) {
+    console.error('Registration submission error:', error);
+    const message = error?.message || 'Unexpected error while saving your registration.';
+    const code = error?.code ? `\nCode: ${error.code}` : '';
+    const details = error?.details ? `\nDetails: ${error.details}` : '';
+    alert(`Could not submit your registration.\n${message}${code}${details}`);
     return;
+  } finally {
+    submitBtn.disabled = !window.registrationOpen();
+    submitBtn.textContent = 'Submit registration →';
   }
 
   // Success
