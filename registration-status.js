@@ -1,4 +1,4 @@
-const registrationDeadline = new Date('2026-10-21T15:00:00+05:30');
+const registrationDeadline = new Date('2026-10-21T23:00:00+05:30');
 const interviewScheduleRelease = new Date('2026-10-21T16:00:00+05:30');
 
 window.registrationOpen = () => Date.now() < registrationDeadline.getTime();
@@ -21,10 +21,10 @@ window.updateRegistrationStatus = () => {
   if (banner && bannerText && bannerCta) {
     banner.classList.toggle('closed', !open);
     banner.setAttribute('aria-label', open
-      ? 'Registration open until 3 PM today'
+      ? 'Registration open until 11 PM today'
       : 'Registration closed');
     bannerText.innerHTML = open
-      ? 'Core Team Registration is&nbsp;<strong>OPEN until 3 PM today</strong>'
+      ? 'Core Team Registration is&nbsp;<strong>OPEN until 11 PM today</strong>'
       : 'Core Team Registration is&nbsp;<strong>CLOSED</strong>';
     bannerCta.textContent = open ? 'Apply →' : 'View details →';
   }
@@ -54,7 +54,7 @@ window.updateRegistrationStatus = () => {
     status.hidden = open;
     status.textContent = open
       ? ''
-      : 'Registration is closed. The deadline was 3:00 PM IST today.';
+      : 'Registration is closed. The deadline was 11:00 PM IST today.';
     form.querySelectorAll('input, select, textarea, button')
       .forEach(control => { control.disabled = !open; });
   }
