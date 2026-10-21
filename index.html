@@ -32,14 +32,14 @@
 <section class="hero" id="home">
 
   <div class="announcement-stack">
-    <div class="reg-banner reveal" aria-label="Registration open announcement">
+    <div class="reg-banner reveal" id="registrationBanner" aria-label="Registration open until 3 PM today">
       <span class="pulse-dot"></span>
-      <span class="banner-text">Core Team Registration is&nbsp;<strong>OPEN</strong></span>
-      <a href="register.html" class="banner-cta">Apply →</a>
+      <span class="banner-text" id="registrationBannerText">Core Team Registration is&nbsp;<strong>OPEN until 3 PM today</strong></span>
+      <a href="register.html" class="banner-cta" id="registrationBannerCta">Apply →</a>
     </div>
-    <div class="reg-banner interview-banner reveal" aria-label="Interviews are scheduled for 13 October">
-      <span class="banner-text">Interview Schedule: <strong>13 OCTOBER</strong></span>
-      <a href="interview.html" class="banner-cta">View Schedule →</a>
+    <div class="reg-banner interview-banner reveal" id="interviewAnnouncement" aria-label="Interview schedule will be shared at 4 PM today">
+      <span class="banner-text" id="interviewAnnouncementText">Interview Schedule will be shared at <strong>4 PM today</strong></span>
+      <a href="interview.html" class="banner-cta" id="interviewAnnouncementCta" hidden>View Schedule →</a>
     </div>
   </div>
 
@@ -110,8 +110,8 @@
 <!-- ── Core Team ── -->
 <section class="core-team" id="team">
   <div class="section-inner">
-    <div class="ct-badge">
-      <span class="pulse-dot white"></span> Recruitment Open
+    <div class="ct-badge" id="recruitmentBadge">
+      <span class="pulse-dot white"></span> <span id="recruitmentBadgeText">Recruitment Open</span>
     </div>
     <h2>Join the <span class="highlight-yellow">Core Team</span></h2>
     <p class="ct-sub">The Core Team drives every project, event, and workshop. We're looking for passionate students who want to lead — not just participate.</p>
@@ -128,6 +128,7 @@
 
 
 <script src="navigation.js"></script>
+<script src="registration-status.js"></script>
 <script src="landing.js"></script>
 </body>
 </html>

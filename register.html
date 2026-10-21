@@ -30,8 +30,8 @@
   <!-- Left sidebar info -->
   <aside class="reg-aside">
     <div class="aside-inner">
-      <span class="aside-badge">
-        <span class="pulse-dot"></span> Registration Open
+      <span class="aside-badge" id="registrationBadge">
+        <span class="pulse-dot"></span> <span id="registrationBadgeText">Registration Open</span>
       </span>
       <h1>Join the<br><span class="yellow">Core Team</span></h1>
       <p>Take ownership of real projects, lead sub-teams and represent the club at competitions.</p>
@@ -55,6 +55,7 @@
     <div class="form-card" id="formCard">
       <h2>Registration form</h2>
       <p class="form-sub">Fill in the details below. Takes about a minute.</p>
+      <p id="registrationStatus" class="registration-status" role="status" hidden></p>
 
       <form id="regForm" novalidate>
         <!-- Full name -->
@@ -136,7 +137,7 @@
         <!-- Interview Slot -->
         <fieldset class="field interview-field">
           <legend>Interview Slot <span class="required-star">*</span></legend>
-          <p class="interview-hint">Choose how you'd like to attend your interview.</p>
+          <p class="interview-hint">Choose your online interview slot.</p>
           <div class="interview-options">
             <label class="interview-card">
               <input type="radio" name="slot" value="Online" required>
@@ -144,14 +145,6 @@
                 <span class="interview-icon">💻</span>
                 <strong>Online</strong>
                 <span class="interview-desc">via Google Meet / Zoom</span>
-              </span>
-            </label>
-            <label class="interview-card">
-              <input type="radio" name="slot" value="Offline">
-              <span class="interview-card-inner">
-                <span class="interview-icon">🏫</span>
-                <strong>Offline</strong>
-                <span class="interview-desc">at the college campus</span>
               </span>
             </label>
           </div>
@@ -189,6 +182,7 @@
 </div>
 
 <script src="navigation.js"></script>
+<script src="registration-status.js"></script>
 <script src="register.js"></script>
 </body>
 </html>

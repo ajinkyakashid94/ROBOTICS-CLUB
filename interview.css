@@ -135,6 +135,12 @@
   outline-offset: 3px;
 }
 
+.offline-option {
+  opacity: .58;
+  cursor: not-allowed;
+  filter: grayscale(.65);
+}
+
 .option-status {
   flex: 0 0 auto;
   margin-left: auto;

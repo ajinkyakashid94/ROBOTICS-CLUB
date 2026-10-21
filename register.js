@@ -56,6 +56,11 @@ Object.keys(rules).forEach(n =>
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
+  if (!window.registrationOpen()) {
+    window.updateRegistrationStatus();
+    return;
+  }
+
   let ok = Object.keys(rules).map(validateField).every(Boolean);
 
   // Interests
@@ -67,7 +72,7 @@ form.addEventListener('submit', async e => {
   // Interview slot
   const slot    = form.slot?.value;
   const slotErr = form.querySelector('.interview-field .err');
-  slotErr.textContent = slot ? '' : 'Please choose an interview slot — Online or Offline.';
+  slotErr.textContent = slot ? '' : 'Please choose the online interview option.';
   if (!slot) ok = false;
 
   if (!ok) {
